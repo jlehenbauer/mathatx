@@ -1,0 +1,61 @@
+from django.db import models
+from os import path
+
+# class Experience(models.Model):
+#     from_year = models.DateField
+#     to_year = models.DateField
+#     current = models.BooleanField
+#     title = models.CharField(max_length='300')
+    
+# class Employer(models.Model):
+#     name = models.CharField(max_length='100')
+
+def path_generator(instance, filename):
+    base, extension = os.path.splitext(os.path.basename(filename))
+    file_dir = f"images/{base}.{extension}"
+    return file_dir
+
+def review_star_validator(review):
+    return 0 <= review.stars <= 5
+
+class AboutMe(models.Model):
+    title = models.CharField(max_length=300)
+    description = models.TextField(default='')
+    image = models.ImageField(default='', upload_to='images/mathatx/aboutme')
+
+    def __str__(self):
+        return self.title
+
+class Banner(models.Model):
+    text = models.CharField(max_length=500)
+    image = models.ImageField(default='', upload_to='images/mathatx/banners')
+
+    def __str__(self):
+        return self.text
+
+class Review(models.Model):
+    quote = models.CharField(max_length=1000)
+    #TODO: limit stars to 0-5
+    stars = models.PositiveSmallIntegerField()
+    source = models.URLField(default="https://maps.app.goo.gl/Xr7ZFPE7oEd7eE2PA")
+    name = models.CharField(max_length=50)
+
+    def __str__(self):
+        return f"Review {self.pk}"
+
+class Service(models.Model):
+    name = models.CharField(max_length=100)
+    description = models.TextField(default='')
+    image = models.ImageField(default='', upload_to='images/mathatx/services')
+    price = models.IntegerField(default=0)
+
+    def __str__(self):
+        return self.name
+
+class Faq(models.Model):
+    question = models.CharField(max_length=2000, default='')
+    answer = models.TextField(default='')
+
+    def __str__(self):
+        return self.question[:100]
+
