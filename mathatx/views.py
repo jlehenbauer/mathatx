@@ -8,9 +8,11 @@ from django.views import generic
 def index(request):
     about_me_list = AboutMe.objects.all()
     banner = Banner.objects.last() or Banner(text="Placeholder, change me")
+    services = Service.objects.all()
     context = {
         "about_me_list": about_me_list,
         "banner": banner,
+        "services": services,
     }
     return render(request, "mathatx/index.html", context)
 

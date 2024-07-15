@@ -34,19 +34,19 @@ class Banner(models.Model):
         return self.text
 
 class Review(models.Model):
+    name = models.CharField(max_length=50)
+    stars = models.PositiveSmallIntegerField()
     quote = models.CharField(max_length=1000)
     #TODO: limit stars to 0-5
-    stars = models.PositiveSmallIntegerField()
     source = models.URLField(default="https://maps.app.goo.gl/Xr7ZFPE7oEd7eE2PA")
-    name = models.CharField(max_length=50)
 
     def __str__(self):
-        return f"Review {self.pk}"
+        return f"{self.name}: {self.stars} ★"
 
 class Service(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField(default='')
-    image = models.ImageField(default='', upload_to='images/mathatx/services')
+    image = models.ImageField(default='', null='', upload_to='images/mathatx/services')
     price = models.IntegerField(default=0)
 
     def __str__(self):
