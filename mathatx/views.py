@@ -9,10 +9,12 @@ def index(request):
     about_me_list = AboutMe.objects.all()
     banner = Banner.objects.last() or Banner(text="Placeholder, change me")
     services = Service.objects.all()
+    reviews = Review.objects.all()
     context = {
         "about_me_list": about_me_list,
         "banner": banner,
         "services": services,
+        "reviews": reviews,
     }
     return render(request, "mathatx/index.html", context)
 

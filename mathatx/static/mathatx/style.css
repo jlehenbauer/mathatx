@@ -65,12 +65,12 @@ input::-moz-focus-inner {
 	padding: 0;
 }
 
-input, select, textarea {
+/* input, select, textarea {
 	-moz-appearance: none;
 	-webkit-appearance: none;
 	-ms-appearance: none;
 	appearance: none;
-}
+} */
 
 /* Basic */
 
@@ -2353,7 +2353,7 @@ input, select, textarea {
 
 /* Features */
 
-	#features {
+	#about-me {
 		position: relative;
 		overflow: hidden;
 		background: #fff;
@@ -2361,11 +2361,11 @@ input, select, textarea {
 		padding: 6em 0;
 	}
 
-		#features p {
+		#about-me p {
 			text-align: center;
 		}
 
-		#features ul.actions {
+		#about-me ul.actions {
 			margin-top: 1.25em;
 		}
 
@@ -2494,7 +2494,7 @@ ul.special {
 
 /* Banner */
 
-	#banner {
+	.banner {
 		position: relative;
 		overflow: hidden;
 		background: #fff;
@@ -2504,13 +2504,12 @@ ul.special {
 		border-bottom: solid 2px #e5e5e5;
 		box-shadow: inset 0px -8px 0px 0px #fff, inset 0px 8px 0px 0px #fff;
 		position: relative;
-		text-transform: uppercase;
 		background: url("../../../media/images/mathatx/banners/banner.jpg");
 		background-size: cover;
-		padding: 10em 0;
+		padding: 6em 0;
 	}
 
-		#banner p {
+		.banner p {
 			font-weight: 400;
 			font-size: 2em;
 			line-height: 1.5em;
@@ -2519,15 +2518,19 @@ ul.special {
 			margin: 0;
 		}
 
-		#banner strong {
+		.banner .review-source{
+			text-align: right;
+		}
+
+		.banner strong {
 			color: inherit;
 		}
 
-		#banner > .container {
+		.banner > .container {
 			position: relative;
 		}
 
-			#banner > .container:before, #banner > .container:after {
+			.banner > .container:before, .banner > .container:after {
 				content: '';
 				display: block;
 				position: absolute;
@@ -2539,11 +2542,11 @@ ul.special {
 				opacity: 0.15;
 			}
 
-			#banner > .container:before {
+			.banner > .container:before {
 				left: 0;
 			}
 
-			#banner > .container:after {
+			.banner > .container:after {
 				-moz-transform: scaleX(-1);
 				-webkit-transform: scaleX(-1);
 				-ms-transform: scaleX(-1);
@@ -2598,7 +2601,7 @@ ul.special {
 
 /* Footer */
 
-	#footer {
+	.footer {
 		position: relative;
 		overflow: hidden;
 		border-top: solid 2px #e5e5e5;
@@ -2606,25 +2609,30 @@ ul.special {
 		padding: 6em 0 8em 0;
 	}
 
-		#footer form input[type="text"],
-		#footer form input[type="email"],
-		#footer form input[type="password"],
-		#footer form select,
-		#footer form textarea {
+		.footer form input[type="text"],
+		.footer form input[type="email"],
+		.footer form input[type="password"],
+		.footer form select,
+		.footer form textarea {
 			background: #f7f7f7;
 		}
 
-			#footer form input[type="text"]:focus,
-			#footer form input[type="email"]:focus,
-			#footer form input[type="password"]:focus,
-			#footer form select:focus,
-			#footer form textarea:focus {
+			.footer form input[type="text"]:focus,
+			.footer form input[type="email"]:focus,
+			.footer form input[type="password"]:focus,
+			.footer form select:focus,
+			.footer form textarea:focus {
 				background: #fff;
 			}
 
-		#footer h2 {
+		.footer h2 {
 			text-align: center;
 		}
+
+	.contact-form-button{
+		align-content: center !important;
+		padding: .5em !important;
+	}
 
 /* Copyright */
 
@@ -2713,21 +2721,21 @@ ul.special {
 
 		/* Features */
 
-			#features {
+			#about-me {
 				padding: 4em 0;
 			}
 
 		/* Banner */
 
-			#banner {
+			.banner {
 				padding: 8em 0;
 			}
 
-				#banner > .container {
+				.banner > .container {
 					padding: 0 4em;
 				}
 
-					#banner > .container br {
+					.banner > .container br {
 						display: none;
 					}
 
@@ -2739,7 +2747,7 @@ ul.special {
 
 		/* Footer */
 
-			#footer {
+			.footer {
 				padding: 4em 0;
 			}
 
@@ -3012,6 +3020,7 @@ ul.special {
 				width: 100%;
 			}
 
+
 		/* Actions */
 
 			ul.actions li {
@@ -3096,29 +3105,29 @@ ul.special {
 
 		/* Banner */
 
-			#banner {
+			.banner {
 				padding: 5em 0;
 			}
 
-				#banner > .container {
+				.banner > .container {
 					padding: 0;
 				}
 
-					#banner > .container:before, #banner > .container:after {
+					.banner > .container:before, .banner > .container:after {
 						display: none;
 					}
 
-				#banner p {
+				.banner p {
 					font-size: 1.25em;
 				}
 
 		/* Features */
 
-			#features {
+			#about-me {
 				padding: 2em 0;
 			}
 
-				#features ul.actions {
+				#about-me ul.actions {
 					margin-top: 0;
 				}
 
@@ -3150,11 +3159,11 @@ ul.special {
 
 		/* Footer */
 
-			#footer {
+			.footer {
 				padding: 2em 0;
 			}
 
-				#footer ul.icons {
+				.footer ul.icons {
 					margin-bottom: 0;
 				}
 
