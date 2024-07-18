@@ -2463,6 +2463,11 @@ ul.special {
 		margin-top: 3em;
 	}
 
+	.footer ul.icons li.icon{
+		display: inline-block !important;
+		margin-right: 1.2em;
+	}
+
 	@media screen and (max-width: 736px) {
 
 		header.major {
@@ -3165,7 +3170,9 @@ ul.special {
 
 				.footer ul.icons {
 					margin-bottom: 0;
+					list-style: none;
 				}
+
 
 		/* Copyright */
 
