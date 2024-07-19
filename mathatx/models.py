@@ -1,3 +1,5 @@
+import re
+from django import forms
 from django.db import models
 from os import path
 
@@ -17,6 +19,9 @@ def path_generator(instance, filename):
 
 def review_star_validator(review):
     return 0 <= review.stars <= 5
+
+def email_validator(email_address):
+    return re.match("[^@]+@[^@]+\.[^@]+", email_address)
 
 class AboutMe(models.Model):
     title = models.CharField(max_length=300)
@@ -59,3 +64,21 @@ class Faq(models.Model):
     def __str__(self):
         return self.question[:100]
 
+class Contact(models.Model):
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    # TODO: validators for email and phone
+    phone = forms.CharField(max_length=15)
+    # subject = models.CharField(max_length=100)
+    message = models.TextField(default='')
+    info_sliding_scale = models.BooleanField(default=False)
+    info_multiple_students = models.BooleanField(default=False)
+    info_virtual_services = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.name
+
+class ContactForm(forms.ModelForm):
+    class Meta: 
+        model = Contact
+        fields = '__all__'
