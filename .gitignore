@@ -5,6 +5,9 @@
 __pycache__
 db.sqlite3
 
+# Sensitive data - replicate locally #
+config.py
+
 # Backup files # 
 *.bak 
 

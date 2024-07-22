@@ -33,10 +33,6 @@ def contact(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
         form.save()
-        print(f"Message sending from {form.cleaned_data['name']} and email {form.cleaned_data['email']}: {form.cleaned_data['message']} \n\n" +
-                    f"Sliding scale? {form.cleaned_data['info_sliding_scale']}\n" +
-                    f"Multiple students? {form.cleaned_data['info_multiple_students']}\n" +
-                    f"Virtual? {form.cleaned_data['info_virtual_services']}")
         message = (f"{form.cleaned_data['message']} \n\n" +
             f"Sliding scale? {"yes" if form.cleaned_data['info_sliding_scale'] else "no"}\n" +
             f"Multiple students? {"yes" if form.cleaned_data['info_multiple_students'] else "no"}\n" +

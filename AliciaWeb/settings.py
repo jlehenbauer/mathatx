@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 import os
+from AliciaWeb import config
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -21,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-l_58e!t#$0h*g-x+(+%uzui6^*2fegd=&mnjoh15aapmsgd+f9'
+SECRET_KEY = config.PROJECT_SECRET
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -104,11 +105,11 @@ AUTH_PASSWORD_VALIDATORS = [
 #gmail_send
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = '##'
-EMAIL_HOST_PASSWORD = '################'
+EMAIL_HOST_USER = config.EMAIL_USER
+EMAIL_HOST_PASSWORD = config.EMAIL_HOST_SECRET
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = '##'
+DEFAULT_FROM_EMAIL = config.DEFAULT_FROM_EMAIL
 
 
 # Internationalization
@@ -119,7 +120,6 @@ LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
 
 USE_I18N = True
-
 USE_TZ = True
 
 
