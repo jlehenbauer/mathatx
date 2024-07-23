@@ -33,13 +33,14 @@ def contact(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
         form.save()
-        message = (f"{form.cleaned_data['message']} \n\n" +
-            f"Sliding scale? {"yes" if form.cleaned_data['info_sliding_scale'] else "no"}\n" +
-            f"Multiple students? {"yes" if form.cleaned_data['info_multiple_students'] else "no"}\n" +
-            f"Virtual? {"yes" if form.cleaned_data['info_virtual_services'] else "no"}")
+        name = form.cleaned_data['name']
+        sliding_scale = "yes" if form.cleaned_data['info_sliding_scale'] else "no"
+        multiple_students = "yes" if form.cleaned_data['info_multiple_students'] else "no"
+        virtual = "yes" if form.cleaned_data['info_virtual_services'] else "no"
+        message = "Reply to: " + form.cleaned_data['email'] + "\n\n" + form.cleaned_data['message'] + " \n\n" + "Sliding scale? " + sliding_scale + "\n" + "Multiple students? " + multiple_students + "\n" + "Virtual? " + virtual
         #if form.is_valid():
             #Send email
-        if send_mail(f"New website contact from {form.cleaned_data['name']}", message, settings.DEFAULT_FROM_EMAIL, [settings.EMAIL_HOST_USER]) > 0:
+        if send_mail("New website contact from " + name, message, form.cleaned_data['email'], [settings.EMAIL_HOST_USER]) > 0:
             #return redirect('success')
             form = ContactForm()
         return form
